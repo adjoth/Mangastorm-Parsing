@@ -4,6 +4,15 @@ from tkinter import ttk, messagebox, Listbox, Scrollbar, Radiobutton
 #Importing User Classes
 from mangaClass import Manga as MangaTitles
 
+## Parsing Files name Located in MSBF folder
+# favorites.msbf
+# 2.msbf
+
+file1 = "favorites.msbf"
+file2 = "2.msbf"
+location = "MSBF/"
+
+
 ## SITES LISTING ##
 # z03mangahere
 # z10readmangatoday
@@ -50,8 +59,10 @@ class Manga(ttk.Frame):
             #print(allManga[i].rtitle())
         #print("Exiting Print Titles")   # Debuging
 
+        # Opens files
     def readTitles(self):
-        file = open("favorites.msbf", "r")          # Opens file (Remember to close when finished)
+        temp = location + file
+        file = open(temp, "r")          # Opens file (Remember to close when finished)
         dummy = file.readline()                     # Unknown Data
         for line in file:
             s, t, u, st, n = line.split('\t')
